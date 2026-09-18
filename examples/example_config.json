@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "workbook": "./workbooks/Material Selection.xlsx",
+  "worksheet": "WPI Model",
+  "matrix": {
+    "values": "C5:G9",
+    "row_labels": "B5:B9",
+    "column_labels": "C4:G4",
+    "reciprocal_tolerance": 1e-09
+  },
+  "outputs": {
+    "values": "M5:M10",
+    "labels": "L5:L10",
+    "winner": "M12",
+    "property_weights": "J5:J9"
+  },
+  "variation": {
+    "method": "saaty_steps",
+    "steps": 1,
+    "consistency_ratio_limit": 0.1
+  },
+  "run": {
+    "use_working_copy": true,
+    "full_calculation_rebuild": true,
+    "restore_after_each_test": true,
+    "stop_on_restoration_failure": true,
+    "log_each_result": true
+  }
+}

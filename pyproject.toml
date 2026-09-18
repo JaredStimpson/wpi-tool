@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wpi-sensitivity-analyzer"
+version = "0.1.0"
+description = "Safe sensitivity analysis for Excel-based WPI/AHP models"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = {text = "MIT"}
+dependencies = [
+  "matplotlib==3.10.1",
+  "numpy==2.2.4",
+  "pandas==2.2.3",
+  "PySide6==6.8.3",
+  "xlwings==0.33.12",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy==1.15.0",
+  "pytest==8.3.5",
+  "pytest-cov==6.0.0",
+  "ruff==0.11.2",
+]
+
+[project.scripts]
+wpi-sensitivity = "wpi_sensitivity.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["excel: requires Microsoft Excel desktop"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["wpi_sensitivity"]
